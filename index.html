@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unit Converter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>Unit Converter</h1>
+      <p class="hint">Choose a category, type a value, and see the result instantly.</p>
+    </header>
+
+    <div class="tabs" id="tabs" role="group" aria-label="Unit category"></div>
+
+    <div class="layout">
+      <!-- Converter -->
+      <section class="converter" aria-label="Converter">
+        <div class="box">
+          <label for="from-value">From</label>
+          <div class="row">
+            <input id="from-value" type="text" inputmode="decimal" autocomplete="off" placeholder="Enter a value">
+            <select id="from-unit" aria-label="Convert from unit"></select>
+          </div>
+        </div>
+
+        <button type="button" id="swap" class="swap" aria-label="Swap units">⇅</button>
+
+        <div class="box">
+          <label for="to-value">To</label>
+          <div class="row">
+            <input id="to-value" type="text" inputmode="decimal" autocomplete="off" placeholder="Result">
+            <select id="to-unit" aria-label="Convert to unit"></select>
+          </div>
+        </div>
+
+        <p id="message" class="message" role="alert"></p>
+
+        <div class="result-bar">
+          <p id="formula" class="formula" aria-live="polite">Type a value to start.</p>
+          <button type="button" id="copy" class="secondary">📋 Copy</button>
+        </div>
+
+        <div class="options">
+          <label for="places">Decimal places</label>
+          <select id="places">
+            <option value="2">2</option>
+            <option value="4" selected>4</option>
+            <option value="6">6</option>
+            <option value="8">8</option>
+          </select>
+          <button type="button" id="reset" class="link-btn">Reset</button>
+        </div>
+        <p id="toast" class="toast" role="status"></p>
+      </section>
+
+      <!-- All conversions -->
+      <aside class="all">
+        <h2>All <span id="cat-name">length</span> units</h2>
+        <p class="muted">Your value in every unit. Click one to use it as the target.</p>
+        <ul id="all-list"></ul>
+        <p id="all-empty" class="muted">Enter a value to see every conversion.</p>
+      </aside>
+    </div>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
